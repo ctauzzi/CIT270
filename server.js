@@ -39,7 +39,7 @@ const signup = (request, response)=>{
     await redisClient.connect();
     const requestUserName = (request.body.userName);
     const requestPassword = md5(request.body.password);
-    const redisSignup = await redisClient.hSet('passwords', request.body.userName, request.body.password);
+    const redisSignup = await redisClient.hSet('passwords', requestUserName, requestPassword);
 };
 
 app.get('/', (request, response)=>{ //everytime something calls your API that is a request
