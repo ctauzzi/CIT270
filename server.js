@@ -35,15 +35,17 @@ const validatePassword = async(request, response)=>{
     }
 };
 
-const signup = (request, response)=>{
-    await redisClient.connect();
-    const requestUserName = (request.body.userName);
-    const requestPassword = md5(request.body.password);
-    const redisSignup = await redisClient.hSet('passwords', requestUserName, requestPassword);
+const savePassword = async (request, response)=>{ //function that will have a user create and store a password into the redis database as a hashed password
+    const clearTextPassword = request.body.password;
+    const hashedTextPassword = md5(clearTextPassword);
+    await redisClient.hSet('passwords', request.body.userName, hashedTextPassword);
+    response.status(200);
+    response.send({result:"Saved"});
 };
 
 app.get('/', (request, response)=>{ //everytime something calls your API that is a request
     response.send("Hello")//a response is when the API gives the information requested
 });
 
+app.post('/signup', savePassword);
 app.post('/login', validatePassword);
