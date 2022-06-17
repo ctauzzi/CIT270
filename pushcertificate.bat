@@ -1,0 +1,1 @@
+scp server.* cayso@cayson.nodejs.cit270.com:/tmp
