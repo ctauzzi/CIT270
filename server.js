@@ -8,7 +8,7 @@ const {createClient} = require('redis');
 const fs = require('fs');
 
 
-const redisClient = createClient({ url: 'redis://default:[PASSWORD]@10.128.0.2:6379'});
+const redisClient = createClient({ url: 'redis://default:@10.128.0.2:6379'});
 
 app.use(bodyParser.json()); //use the middleware (calls it before anything else happens on each request)
 
