@@ -6,14 +6,9 @@ const md5 = require('md5');
 const app = express();//use the library
 const {createClient} = require('redis');
 const fs = require('fs');
-const redisClient = createClient(
-    {
-        socket:{
-            port:6379,
-            host:"127.0.0.1",
-        },
-    }
-);
+
+
+const redisClient = createClient({ url: 'redis://default:[PASSWORD]@10.128.0.2:6379'});
 
 app.use(bodyParser.json()); //use the middleware (calls it before anything else happens on each request)
 
