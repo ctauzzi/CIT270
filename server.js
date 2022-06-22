@@ -1,13 +1,11 @@
 const https = require('https');
 const express = require('express'); //import the library
 const bodyParser = require('body-parser'); //body parse is called middleware
-const port = 3000;
+const port = 443;
 const md5 = require('md5');
 const app = express();//use the library
 const {createClient} = require('redis');
 const fs = require('fs');
-
-
 const redisClient = createClient({ url: 'redis://default:@10.128.0.2:6379'});
 
 app.use(bodyParser.json()); //use the middleware (calls it before anything else happens on each request)
