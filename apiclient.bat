@@ -1,1 +1,1 @@
-curl -d "@data.json" -X POST -H "Content-Type:application/json" https://cayson.cit270.com:3000/login
+curl -d "@data.json" -X POST -H "Content-Type:application/json" https://cayson.cit270.com
