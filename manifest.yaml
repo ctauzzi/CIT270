@@ -12,7 +12,7 @@ spec:
     metadata:
       labels:
         app: cayson-cit270
-  specs:
+  spec:
     containers:
       - name: cayson-cit270
         image: cfantauzzi/cit270
