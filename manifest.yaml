@@ -31,14 +31,14 @@ spec:
             httpGet:
               path: /
               port: 3000
-              scheme: HTTPS
+              scheme: HTTP
             initialDelaySeconds: 3
             periodSeconds: 3
           readinessProbe:
             httpGet:
               path: /
               port: 3000
-              scheme: HTTPS
+              scheme: HTTP
             initialDelaySeconds: 3
             periodSeconds: 3
 
