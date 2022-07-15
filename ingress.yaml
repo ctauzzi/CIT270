@@ -1,0 +1,21 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: cayson-cit270-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    kubernetes.io/ingress.class: "nginx"
+    cert-manager.io/cluster-issuer: "letsencrypt-cluster-issuer"
+spec:
+  tls:
+  - hosts:
+    - caysonfantauzzi.cit270.com
+    secretName: cayson-dev-tls
+  rules:
+  - host: caysonfantauzzi.cit270.com
+    http:
+      paths:
+      - backend:
+          serviceName: cayson-cit270-loadbalancer
+          servicePort: 80
